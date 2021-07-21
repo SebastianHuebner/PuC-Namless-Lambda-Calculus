@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "dfe15c24c3acb9c9",
+    "type": "split",
+    "children": [
+      {
+        "id": "d8a66d2c8bd66ebf",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Fragen.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6aa265ccf2672c6a",
+    "type": "split",
+    "children": [
+      {
+        "id": "083aba56c3c80f60",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "270b58799e9fb8ba",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "004ee792640d76e6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "export",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c7417ec694bbfd29",
+    "type": "split",
+    "children": [
+      {
+        "id": "befb2aa3cf504290",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ef24053ac26221bd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Fragen.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "d8a66d2c8bd66ebf",
+  "lastOpenFiles": [
+    "Fragen.md",
+    "Paper.md",
+    "Translation.md",
+    "Probleme.md",
+    "Evaluate.md",
+    "DeBruijn.md",
+    "Example.png",
+    "Untitled.md",
+    "paste bin.md",
+    "Index.md"
+  ]
+}

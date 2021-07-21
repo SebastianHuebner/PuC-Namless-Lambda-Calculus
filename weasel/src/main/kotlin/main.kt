@@ -1,3 +1,10 @@
+/*
+* TODO: ?
+*   - Expr.Lambda hat keinen Paramenter binder mehr.
+*   - Expr.Var hat keinen Namen mehr.
+* */
+
+
 sealed class Expr {
     data class Var(val name: String) : Expr()
     data class Lambda(val binder: String, val body: Expr) : Expr()
@@ -61,24 +68,24 @@ fun main() {
 //    )
 //    println("${eval(expr)}")
 
-//    val expr = Expr.Application(
-//        Expr.Application(
-//            Expr.Lambda(
-//                "f", Expr.Lambda(
-//                    "y",
-//                    Expr.Application(
-//                        Expr.Var("f"),
-//                        Expr.Application(
-//                            Expr.Var("f"),
-//                            Expr.Var("y")
-//                        )
-//                    )
-//                )
-//            ),
-//            Expr.Lambda("x", Expr.Var("x"))
-//        ), Expr.Number(40)
-//    )
-//    println("${eval(expr)}")
+    val expr = Expr.Application(
+        Expr.Application(
+            Expr.Lambda(
+                "f", Expr.Lambda(
+                    "y",
+                    Expr.Application(
+                        Expr.Var("f"),
+                        Expr.Application(
+                            Expr.Var("f"),
+                            Expr.Var("y")
+                        )
+                    )
+                )
+            ),
+            Expr.Lambda("x", Expr.Var("x"))
+        ), Expr.Number(40)
+    )
+    println("${eval(expr)}")
 
 //    val f = Expr.Lambda("x", Expr.Application(Expr.Var("x"), Expr.Var("x")))
 //    val omega = Expr.Application(f, Expr.Application(f, f));
@@ -86,7 +93,7 @@ fun main() {
 
     // (λx ⇒ (λy ⇒ x y)) y
     // (λy ⇒ y y)
-    val e = Expr.Application(
+/*    val e = Expr.Application(
         Expr.Lambda(
             "x", Expr.Lambda(
                 "y",
@@ -101,5 +108,5 @@ fun main() {
         { y: Int -> x + y }
     }
     val x = 20
-    println(add10()(5))
+    println(add10()(5))*/
 }

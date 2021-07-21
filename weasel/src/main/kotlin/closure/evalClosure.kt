@@ -2,6 +2,7 @@ package closure
 
 import kotlinx.collections.immutable.PersistentMap
 import kotlinx.collections.immutable.persistentHashMapOf
+import kotlin.math.exp
 
 typealias Env = PersistentMap<String, Value>
 
@@ -73,18 +74,7 @@ fun testEval(expr: String) {
     } catch (ex: Exception) {
         println("Failed to eval with: ${ex.message}")
     }
-
 }
-
-// sum(0) == 0
-// sum(n) == n + sum(n - 1)
-
-fun sum(n: Int): Int =
-    if (n == 0) {
-        0
-    } else {
-        n + sum(n - 1)
-    }
 
 val z = eval(
     persistentHashMapOf(),
@@ -92,7 +82,7 @@ val z = eval(
 )
 
 fun main() {
-//    val identity = Expr.Lambda("x", Expr.Var("x"))
+//    val identity = Expr.Lambda("x", ExprVar("x")).
 //    test(Expr.Number(10))
 //    test(Expr.Var("x"))
 //    test(identity)
