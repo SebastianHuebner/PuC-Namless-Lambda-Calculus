@@ -29,6 +29,28 @@ sealed class NExpr {
     data class Let(val expr: NExpr, val body: NExpr) : NExpr()
 }
 
+sealed class Status {
+    data class Bound(val i: Int) : Status()
+    data class Free(val name: String) : Status()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sealed class NExprWithNames {
     data class Var(val i: Status, val name: String) : NExprWithNames()
     data class Lambda(val body: NExprWithNames, val name: String) : NExprWithNames()
@@ -39,9 +61,4 @@ sealed class NExprWithNames {
     data class Binary(val operator: Operator, val x: NExprWithNames, val y: NExprWithNames) : NExprWithNames()
     data class If(val condition: NExprWithNames, val thenBranch: NExprWithNames, val elseBranch: NExprWithNames) : NExprWithNames()
     data class Let(val expr: NExprWithNames, val body: NExprWithNames, val name: String) : NExprWithNames()
-}
-
-sealed class Status {
-    data class Bound(val i: Int) : Status()
-    data class Free(val name: String) : Status()
 }

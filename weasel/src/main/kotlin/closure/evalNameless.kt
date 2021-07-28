@@ -37,6 +37,7 @@ fun translate(scope: PersistentMap<String, Int>, expr: Expr): NExpr =
         is Expr.Var -> NExpr.Var(scope[expr.name]?.let { Status.Bound(it) } ?: Status.Free(expr.name))
     }
 
+
 fun eval(scope: PersistentMap<Int, NExpr>, expr: NExpr): NExpr =
     when (expr) {
         is NExpr.Application -> {
@@ -54,7 +55,7 @@ fun eval(scope: PersistentMap<Int, NExpr>, expr: NExpr): NExpr =
         }
         is NExpr.Boolean -> expr
         is NExpr.If -> {
-            val evaledCond = eval(scope, expr.condition) as? NExpr.Boolean ?: throw Exception("")
+            val evaledCond = eval(scope, expr.condition) as? NExpr.Boolean ?: throw Exception("${expr.condition} is not a boolean")
             if (evaledCond.b) eval(scope, expr.thenBranch)
             else eval(scope, expr.elseBranch)
         }
@@ -69,16 +70,16 @@ fun eval(scope: PersistentMap<Int, NExpr>, expr: NExpr): NExpr =
         is NExpr.Var -> {
             val i = when (expr.i) {
                 is Status.Bound -> expr.i.i
-                is Status.Free -> throw Exception("Variable ${expr.i.name} not defined")
+                is Status.Free -> throw Exception("Variable ${expr.i.name} is free")
             }
-            //TODO: Find a case where this throws a exception
             scope[i] ?: throw Exception("Variable not defined")
         }
     }
 
+
 private fun equals(x: NExpr, y: NExpr): NExpr {
     val a = x as? NExpr.Number ?: throw Exception("Can't compare $x, it's not a number")
-    val b = x as? NExpr.Number ?: throw Exception("Can't compare $y, it's not a number")
+    val b = y as? NExpr.Number ?: throw Exception("Can't compare $y, it's not a number")
     return NExpr.Boolean(a.n == b.n)
 }
 

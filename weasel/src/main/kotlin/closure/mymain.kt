@@ -9,7 +9,7 @@ import kotlinx.collections.immutable.persistentMapOf
 * //expected 10
 * */
 
-fun <T> T.print(){
+fun <T> T.print() {
     println(this)
 }
 
@@ -31,17 +31,27 @@ fun <T> test(expr: T): T? {
 
 fun main() {
     val proc = """
-        let x = (\x => \z => z - x) in
-        let y = (\x => \y => y - x) in
-        1 == 1
+        let plus10 = \x => x + 10 in
+        let minus5 = \x => x - 5 in
+        let value =  plus10 1 in
+        let complexValue = 
+            let temp = 5 in
+            plus10 (minus5 value) - temp
+        in
+        complexValue
     """.trimIndent()
+    println("Der eingegebene Code lautet:\n$proc")
     val expr = Parser(Lexer(proc)).parseExpr()
-    println(expr)
+    println("-----------------\nVorlesung:")
+    println("Die Expr vom Parser: $expr")
+    print("Ergebnis: ")
     testEval(proc)
+    println("-----------------\nLocally Nameless:")
     val nExpr = translate(persistentMapOf(), expr)
-    println(nExpr)
+    println("Die übersetzte Expr: $nExpr")
+    print("Ergebnis: ")
     test(nExpr)?.print()
-    val nExprWithName = translateToNExprWithNames(persistentMapOf(), expr)
+    /*val nExprWithName = translateToNExprWithNames(persistentMapOf(), expr)
     println(nExprWithName)
-    test(nExprWithName)?.print()
+    test(nExprWithName)?.print()*/
 }

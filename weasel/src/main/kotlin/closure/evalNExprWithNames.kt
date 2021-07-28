@@ -78,7 +78,7 @@ fun eval(scope: PersistentMap<Int, NExprWithNames>, expr: NExprWithNames): NExpr
 
 private fun equals(x: NExprWithNames, y: NExprWithNames): NExprWithNames {
     val a = x as? NExprWithNames.Number ?: throw Exception("Can't compare $x, it's not a number")
-    val b = x as? NExprWithNames.Number ?: throw Exception("Can't compare $y, it's not a number")
+    val b = y as? NExprWithNames.Number ?: throw Exception("Can't compare $y, it's not a number")
     return NExprWithNames.Boolean(a.n == b.n)
 }
 

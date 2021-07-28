@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Fragen.md",
-            "mode": "preview"
+            "file": "Paper.md",
+            "mode": "source"
           }
         }
       }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Fragen.md",
+                "file": "Paper.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "d8a66d2c8bd66ebf",
   "lastOpenFiles": [
-    "Fragen.md",
     "Paper.md",
-    "Translation.md",
-    "Probleme.md",
+    "Opening.md",
+    "Fragen.md",
+    "Example.png",
     "Evaluate.md",
     "DeBruijn.md",
-    "Example.png",
+    "Probleme.md",
+    "Translation.md",
     "Untitled.md",
-    "paste bin.md",
-    "Index.md"
+    "paste bin.md"
   ]
 }
